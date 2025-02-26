@@ -238,7 +238,57 @@ for palabra in frase_cortada:
 
 print(f"Su frase tiene {contador_vocales} vocales")
 
-Ejercicio 5: Diseñar un sistema para ingresar y almacenar nombres en una lista, con opción de eliminar duplicados.
+# Ejercicio 5: Diseñar un sistema para ingresar y almacenar nombres en una lista, con opción de eliminar duplicados.
+
+print(":::: MANIPULACION DE LISTAS EN BUCLES ::::")
+
+lista_de_nombre = []
+
+lista_sin_duplicados = []
+
+while True:
+
+    nuevo_nombre = input("Ingrese nuevo nombre o escriba 'salir': ")
+
+    if nuevo_nombre.lower() == "salir":
+        print("Ha salido del programa")
+        print(":::::::::::::::::::::::::::::::::::::::::::::")
+        break
+    else:
+        lista_de_nombre.append(nuevo_nombre)
+
+for nombre in lista_de_nombre:
+     if nombre not in lista_sin_duplicados:
+         lista_sin_duplicados.append(nombre)
+
+print(f"Lista original: {lista_de_nombre}")
+print(f"Lista sin duplicados: {lista_sin_duplicados}")
+print(":::::::::::::::::::::::::::::::::::::::::::::")
+
+eliminar_duplicados = input("Desea eliminar duplicados (si/no): ")
+
+if eliminar_duplicados.lower() == "si":
+    lista_sin_duplicados = []
+    for nombre in lista_de_nombre:
+        if nombre not in lista_sin_duplicados:
+            lista_sin_duplicados.append(nombre)
+    
+    print(f"Lista corregida:{lista_sin_duplicados}")
+    print(":::::::::::::::::::::::::::::::::::::::::::::")
+
+else:
+    print("Se mantienen ambas listas")
+    print(":::::::::::::::::::::::::::::::::::::::::::::")
+
+if eliminar_duplicados.lower() == "si":                    #OTRA MANERA ES USANDO EL METODO .copy()
+    lista_de_nombre = lista_sin_duplicados.copy()
+    print(f"Lista actualizada: {lista_de_nombre}")
+    print(":::::::::::::::::::::::::::::::::::::::::::::")
+else:
+    print("Se mantienen ambas listas")
+    print(":::::::::::::::::::::::::::::::::::::::::::::")
+
+
 Ejercicio 6: Generar una tabla de multiplicar usando bucles anidados.
 Ejercicio 7: Construir un programa que simule un cajero automático con saldo inicial, depósitos y retiros.
 3. Colecciones, diccionarios y funciones
