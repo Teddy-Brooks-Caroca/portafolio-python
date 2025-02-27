@@ -289,9 +289,94 @@ else:
     print(":::::::::::::::::::::::::::::::::::::::::::::")
 
 
-Ejercicio 6: Generar una tabla de multiplicar usando bucles anidados.
-Ejercicio 7: Construir un programa que simule un cajero automático con saldo inicial, depósitos y retiros.
-3. Colecciones, diccionarios y funciones
+#Ejercicio 6: Generar una tabla de multiplicar usando bucles anidados.
+
+multiplicando = int(input("Ingrese el número para la tabla de multiplicar: "))
+
+for _ in range(1):  
+    for multiplicador in range(1, 11):  
+        print(f"{multiplicando} x {multiplicador} = {multiplicando * multiplicador}")
+
+
+mulltiplicando = int(input("Ingrese la tabla que desea: "))            # MÉTODO TRADICIONAL, SIN ANIDADO
+multiplicador = int(input("Ingrese hasta que numero desea la tabla: "))
+
+for n in range(1,multiplicador + 1):
+    print(f"{mulltiplicando} x {n} = {mulltiplicando * n}")
+
+# Ejercicio 7: Construir un programa que simule un cajero automático con saldo inicial, depósitos y retiros.
+
+print("::::: SIMULACIÓN DE CAJERO AUTOMÁTICO :::::")
+print("manipulación de bucles y condicionales en lista")
+print(":::::::::::::::::::::::::::::::::::::::::::")
+
+depositos = []
+retiros = []
+
+clave = input("Ingrese su clave: ")
+
+if clave == "0710":
+
+    while True:
+
+        saldo = sum(depositos) - sum(retiros)
+
+        print("1.- Consultar saldo","\n"
+              "2.- Depositar","\n"
+              "3.- Retirar","\n"
+              "4.- Salir")
+        
+        opcion = input("Ingrese una opción: ")
+
+        if opcion == "1":
+            print(f"Su saldo actual es de: ${saldo}")
+
+        elif opcion == "2":
+            deposito = float(input("Ingrese la cantidad que desea depositar: "))
+            confirmacion_deposito = input(f"Usted quiere depositar ${deposito} ¿Es correcta la cifra? (si/no): ")
+            if confirmacion_deposito.lower() == "si":
+                depositos.append(deposito)
+                print("Su deposito ha sido registrado con éxito")
+                print("::::::::::::::::::::::::::::::::::::::::")
+
+            else:
+                deposito_corregido = float(input("Ingrese nuevamente la cantidad que desea depositar: "))
+                depositos.append(deposito_corregido)
+                print("Su deposito ha sido registrado con éxito")
+                print("::::::::::::::::::::::::::::::::::::::::")
+
+        elif opcion == "3":
+            retiro = float(input("Ingrese la cantidad que desea retirar: "))
+            confirmacion_retiro = input(f"Usted quiere retirar ${retiro} ¿Es correcta la cifra? (si/no): ")
+            if confirmacion_retiro.lower() == "si":
+                if retiro < saldo:
+                    retiros.append(retiro)
+                    print("Su retiro ha sido registrado con éxito")
+                    print("::::::::::::::::::::::::::::::::::::::::")
+
+                else:
+                    print("Su saldo es menor a lo que desea retirar")
+                    print("::::::::::::::::::::::::::::::::::::::::")
+
+            else:
+                retiro_corregido = float(input("Ingrese nuevamente la cantidad que desea retirar: "))
+                if retiro_corregido < saldo:
+                    retiros.append(retiro_corregido)
+                    print("Su retiro ha sido registrado con éxito")
+                    print("::::::::::::::::::::::::::::::::::::::::")
+
+        elif opcion == "4":
+            print("Usted ha salido del programa")
+            print("::::::::::::::::::::::::::::::::::::::::")
+            break
+
+else:
+    print("Clave ingresada no es la correcta")
+    print("::::::::::::::::::::::::::::::::::::::::")
+
+# :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## 3. Colecciones, diccionarios y funciones
 Ejercicio 1: Crear una función que reciba una lista y devuelva el elemento más grande y el más pequeño.
 Ejercicio 2: Escribir un programa que use un diccionario para almacenar la relación entre nombres y edades, y permita buscar datos.
 Ejercicio 3: Implementar una función que calcule la suma de los valores en un diccionario.
