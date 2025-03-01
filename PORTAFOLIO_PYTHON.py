@@ -377,8 +377,71 @@ else:
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## 3. Colecciones, diccionarios y funciones
-Ejercicio 1: Crear una función que reciba una lista y devuelva el elemento más grande y el más pequeño.
-Ejercicio 2: Escribir un programa que use un diccionario para almacenar la relación entre nombres y edades, y permita buscar datos.
+
+# Ejercicio 1: Crear una función que reciba una lista y devuelva el elemento más grande y el más pequeño.
+
+print(" :::: CREACIÓN DE FUNCIÓN SIN DEPENDECIA DE VARIABLES GLOBALES :::: ")
+
+lista_de_numeros = []
+
+cantidad_de_elementos = int(input("Cuentos números desea ingresar: "))
+contador_de_elementos = 0
+
+while cantidad_de_elementos > contador_de_elementos:
+    elemento = int(input("Ingrese número a la lista: "))
+    lista_de_numeros.append(elemento)
+    contador_de_elementos = contador_de_elementos + 1
+
+def lista_maximo_minimo(lista):
+    return min(lista), max(lista)
+
+minimo, maximo = lista_maximo_minimo(lista_de_numeros)
+
+print(":::::::::::::::::::::::::::::::::::")
+print(f"El número más pequeño es: {minimo}")
+print(f"El número más grande es: {maximo}")
+print(":::::::::::::::::::::::::::::::::::")
+
+# Ejercicio 2: Escribir un programa que use un diccionario para almacenar la relación entre nombres y edades, y permita buscar datos.
+
+print(":::: MANEJO DE FUNCIONES EN BUCLES Y DICCIONARIOS ::::")
+
+datos_personales = {}
+
+def mostrar_lista(personas):
+    print("::::::::::::::::::::::::::::::::::::::::")
+    print("PERSONAS INGRESADAS:")
+    contador = 1
+    for nombre,edad in personas.items():
+        print(f"{contador}.- {nombre.upper()} tiene {edad} años")
+        contador = contador + 1
+
+
+while True:
+    
+    nombre = input("Ingrese nombre completo de la persona o escriba 'salir': ")
+
+    if nombre.lower() == "salir":
+        mostrar_lista(datos_personales)
+        print("Usted ha salido del programa")
+        print("::::::::::::::::::::::::::::::::::::::::")
+        break
+
+    else:
+        edad = int(input("Escriba la edad de la persona: "))
+        print("::::::::::::::::::::::::::::::::::::::::")
+        datos_personales[nombre] = edad
+
+revisar_nombre = input("Ingrese nombre de la persona: ")
+
+if revisar_nombre in datos_personales:
+    print(f"{revisar_nombre.upper()} tiene {datos_personales[revisar_nombre]} años")
+    print("::::::::::::::::::::::::::::::::::::::::")
+
+else:
+     print("Nombre no ha sido encontrado")
+     print("::::::::::::::::::::::::::::::::::::::::")
+
 Ejercicio 3: Implementar una función que calcule la suma de los valores en un diccionario.
 Ejercicio 4: Diseñar una función que reciba una tupla de números y devuelva su promedio.
 Ejercicio 5: Crear un programa que almacene notas de estudiantes en un diccionario y calcule el promedio de cada uno.
