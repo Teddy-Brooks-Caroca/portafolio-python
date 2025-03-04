@@ -442,8 +442,64 @@ else:
      print("Nombre no ha sido encontrado")
      print("::::::::::::::::::::::::::::::::::::::::")
 
-Ejercicio 3: Implementar una función que calcule la suma de los valores en un diccionario.
-Ejercicio 4: Diseñar una función que reciba una tupla de números y devuelva su promedio.
+# Ejercicio 3: Implementar una función que calcule la suma de los valores en un diccionario.
+
+print(" :::: DICCIONARIOS EN BUCLES CON FUNCIONES :::: ")
+
+numeros_a_sumar = {}
+
+def sumar_elementos(conjunto):
+    return sum(numeros_a_sumar[conjunto])
+
+def mostar_diccionario(diccionario):
+    for conjunto,valor in diccionario.items():
+        print(f"{conjunto}:{valor}")    
+
+while True:
+
+    conjunto = input("Ingrese 'conjunto' seguido de una letra a la lista o escriba 'salir': ")
+
+    if conjunto.lower() == "salir":
+        mostar_diccionario(numeros_a_sumar)
+        print("Usted ha salido del programa")
+        print(":::::::::::::::::::::::::::::::::::::")
+        break
+
+    else:
+        valor = int(input("Ingrese un nuevo valor a la lista: "))
+        print(":::::::::::::::::::::::::::::::::::::")
+
+        if conjunto not in numeros_a_sumar:
+            numeros_a_sumar[conjunto] = []
+            numeros_a_sumar[conjunto].append(valor)
+
+        while True:
+
+            confirmacion_nuevo_valor = input("¿Desea agregar un nuevo valor?(si/no): ")
+            print(":::::::::::::::::::::::::::::::::::::")
+
+            if confirmacion_nuevo_valor == "si":
+
+                nuevo_valor = int(input("Ingrese nuevo valor: "))
+                numeros_a_sumar[conjunto].append(nuevo_valor)
+            
+            else:
+                print("Fin de los valores para este conjunto")
+                print(":::::::::::::::::::::::::::::::::::::")
+                break
+
+conjunto_a_sumar = input("Ingrese 'conjunto' seguido de su letra para sumar sus elementos: ")
+print(":::::::::::::::::::::::::::::::::::::")
+
+if conjunto_a_sumar in numeros_a_sumar:
+    resultado = sumar_elementos(conjunto_a_sumar)
+    print(f"La suma de los valores del conjunto {conjunto_a_sumar} es: {resultado}")
+    print(":::::::::::::::::::::::::::::::::::::")
+else:
+    print("Conjunto no se encuentra")
+    print(":::::::::::::::::::::::::::::::::::::")
+
+# Ejercicio 4: Diseñar una función que reciba una tupla de números y devuelva su promedio.
 Ejercicio 5: Crear un programa que almacene notas de estudiantes en un diccionario y calcule el promedio de cada uno.
 Ejercicio 6: Implementar un programa que permita registrar tareas pendientes en un diccionario con categorías.
 Ejercicio 7: Crear un generador de contraseñas aleatorias utilizando colecciones.
