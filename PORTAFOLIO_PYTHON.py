@@ -500,6 +500,41 @@ else:
     print(":::::::::::::::::::::::::::::::::::::")
 
 # Ejercicio 4: Diseñar una función que reciba una tupla de números y devuelva su promedio.
+
+print(" :::: FUNCIONES EN DICCIONARIOS ::::")
+
+numeros_en_lista = []
+
+def promedio(numero):
+    if len(numero) == 0:
+        return "No se puede calcular el promedio con una lista vacía"
+    return sum(numero) / len(numero)
+
+
+contador = 0
+
+while True:
+    try:
+        cantidad_de_numeros = int(input("¿Cuántos números desea agregar?: "))
+        if cantidad_de_numeros <= 0:
+            print("Debe ingresar un número mayor a cero.")
+            print(":"* 40)
+            continue
+        break 
+    except ValueError:
+        print("Error: Debe ingresar un número entero.")
+        print(":"* 40)
+              
+while contador < cantidad_de_numeros:
+    numero_a_ingresar = int(input("Ingrese un numero: "))
+    numeros_en_lista.append(numero_a_ingresar)
+    contador = contador + 1
+
+numeros_en_tupla = tuple(numeros_en_lista)
+
+print(f"Su promedio es: {promedio(numeros_en_tupla)}")
+print(":"* 40)
+
 Ejercicio 5: Crear un programa que almacene notas de estudiantes en un diccionario y calcule el promedio de cada uno.
 Ejercicio 6: Implementar un programa que permita registrar tareas pendientes en un diccionario con categorías.
 Ejercicio 7: Crear un generador de contraseñas aleatorias utilizando colecciones.
