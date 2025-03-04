@@ -501,7 +501,7 @@ else:
 
 # Ejercicio 4: Diseñar una función que reciba una tupla de números y devuelva su promedio.
 
-print(" :::: FUNCIONES EN DICCIONARIOS ::::")
+print(" :::: FUNCIONES EN TUPLAS ::::")
 
 numeros_en_lista = []
 
