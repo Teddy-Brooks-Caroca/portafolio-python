@@ -2,8 +2,7 @@
 
 ## 1. Introducción, conceptos y condicionales
 
-# Ejercicio 1: Crear un programa que pida al usuario su nombre y edad, 
-# luego muestre un mensaje personalizado indicando si es mayor o menor de edad.
+# Ejercicio 1: Crear un programa que pida al usuario su nombre y edad, luego muestre un mensaje personalizado indicando si es mayor o menor de edad.
 
 nombre = input("Ingrese su nombre: ")
 edad = int(input("Ingrese su edad: "))
@@ -15,8 +14,7 @@ elif edad > 18:
 else:
     print("Ingrese una edad permitida por el sistema")
 
-# Ejercicio 2: Diseñar un programa que calcule el precio total de una compra, 
-# aplicando descuentos según el monto.
+# Ejercicio 2: Diseñar un programa que calcule el precio total de una compra, aplicando descuentos según el monto.
 
 precio = int(input("Ingrese el precio del producto: "))
 porcentaje_descuento = int(input("Ingrese el descuento ofrecido: "))
@@ -31,8 +29,7 @@ print(f"DESCUENTO: {porcentaje_descuento}%")
 print(f"PRECIO FINAL: ${precio_final}")
 print("==== === === ====")
 
-# Ejercicio 3: Escribir un programa que convierta grados Celsius a Fahrenheit y viceversa, 
-# con una opción de menú para elegir la conversión.
+# Ejercicio 3: Escribir un programa que convierta grados Celsius a Fahrenheit y viceversa, con una opción de menú para elegir la conversión.
 
 print(":::::: Conversor de temperatura ::::::")
 
@@ -63,8 +60,7 @@ while True:
         print(":::::: Gracias por usar el conversor ::::::")
         break
 
-# Ejercicio 4: Crear un programa que determine si un número ingresado 
-# por el usuario es positivo, negativo o cero.
+# Ejercicio 4: Crear un programa que determine si un número ingresado por el usuario es positivo, negativo o cero.
 
 numero_usuario = int(input("Ingrese un numero: "))
 
@@ -75,8 +71,7 @@ elif numero_usuario < 0:
 else:
     print("Su numero es igual a 0")
     
-# Ejercicio 5: Implementar un programa que identifique el mayor 
-# de tres números ingresados por el usuario.
+# Ejercicio 5: Implementar un programa que identifique el mayor de tres números ingresados por el usuario.
 
 numero_1 = int(input("Ingrese primer número: "))
 numero_2 = int(input("Ingrese segundo numero: "))
@@ -89,8 +84,7 @@ elif numero_2 > numero_1 and numero_3:
 else:
     print("el tercer número es el mayor")
     
-# Ejercicio 6: Diseñar un menú interactivo que permita seleccionar 
-# opciones como "Sumar", "Restar" o "Salir".
+# Ejercicio 6: Diseñar un menú interactivo que permita seleccionar opciones como "Sumar", "Restar" o "Salir".
 
 print("::::: CLACULADORA SIMPLE :::::")
 while True:
@@ -147,8 +141,7 @@ while True:
         print("::::::::::::::::::::::::::::::::::::")
 
 
-# Ejercicio 7: Simular un sistema de autenticación básico que 
-# valide un usuario y contraseña predefinidos.
+# Ejercicio 7: Simular un sistema de autenticación básico que valide un usuario y contraseña predefinidos.
 
 nombre_usuario = input("Ingrese su nombre: ")
 contraseña = input("Ingrese su contraseña: ")
@@ -167,8 +160,7 @@ else:
 
 ## 2. Entrada de datos, bucles y listas
 
-# Ejercicio 1: Crear un programa que sume todos los números 
-# introducidos por el usuario hasta que se ingrese un "0".
+# Ejercicio 1: Crear un programa que sume todos los números introducidos por el usuario hasta que se ingrese un "0".
 
 print("::::: Secuencia con bucle infinito :::::")
 
@@ -185,8 +177,7 @@ while True:
     print(f"La suma de los numeros ingresados es: {sum(lista_de_numeros)}")
     print(":::::::::::::::::::::::::::::::::::::::")
 
-# Ejercicio 2: Escribir un programa que genere una lista 
-# de números del 1 al 10 y los imprima en orden inverso.
+# Ejercicio 2: Escribir un programa que genere una lista de números del 1 al 10 y los imprima en orden inverso.
 
 lista_de_numeros = []
 
@@ -198,8 +189,7 @@ print(lista_de_numeros[::-1]) # primer método
 lista_de_numeros.reverse() # segundo método
 print(lista_de_numeros)
 
-# Ejercicio 3: Implementar un programa que calcule el promedio
-# de una lista de números ingresados por el usuario.
+# Ejercicio 3: Implementar un programa que calcule el promedio de una lista de números ingresados por el usuario.
 
 print(":::: Operación matematica simple en bucle ::::")
 
@@ -446,58 +436,37 @@ else:
 
 print(" :::: DICCIONARIOS EN BUCLES CON FUNCIONES :::: ")
 
-numeros_a_sumar = {}
+diccionario_numeros = {}
 
-def sumar_elementos(conjunto):
-    return sum(numeros_a_sumar[conjunto])
+def sumar_diccionario():
+    return sum(diccionario_numeros.values())
 
-def mostar_diccionario(diccionario):
-    for conjunto,valor in diccionario.items():
-        print(f"{conjunto}:{valor}")    
+def mostrar_conjuntos(diccionario):
+    print(":: Conjuntos ingresados ::")
+    for clave,valor in diccionario.items():
+        print(f"{clave}: {valor}")
 
 while True:
 
-    conjunto = input("Ingrese 'conjunto' seguido de una letra a la lista o escriba 'salir': ")
+    clave = input("Ingrese 'conjunto' seguido de una letra, sino escriba 'salir': ")
 
-    if conjunto.lower() == "salir":
-        mostar_diccionario(numeros_a_sumar)
-        print("Usted ha salido del programa")
-        print(":::::::::::::::::::::::::::::::::::::")
+    if clave.lower() == "salir":
+        mostrar_conjuntos(diccionario_numeros)
+        print(":" * 50)
         break
 
+    if clave in diccionario_numeros:
+        print(f"La clave{clave} ya existe. Ingrese una nueva clave")
+        continue
+
     else:
-        valor = int(input("Ingrese un nuevo valor a la lista: "))
-        print(":::::::::::::::::::::::::::::::::::::")
+        valor = int(input("Ingrese el valor que desea: "))
+        print(":" * 50)
+        diccionario_numeros[clave] = valor
 
-        if conjunto not in numeros_a_sumar:
-            numeros_a_sumar[conjunto] = []
-            numeros_a_sumar[conjunto].append(valor)
-
-        while True:
-
-            confirmacion_nuevo_valor = input("¿Desea agregar un nuevo valor?(si/no): ")
-            print(":::::::::::::::::::::::::::::::::::::")
-
-            if confirmacion_nuevo_valor == "si":
-
-                nuevo_valor = int(input("Ingrese nuevo valor: "))
-                numeros_a_sumar[conjunto].append(nuevo_valor)
-            
-            else:
-                print("Fin de los valores para este conjunto")
-                print(":::::::::::::::::::::::::::::::::::::")
-                break
-
-conjunto_a_sumar = input("Ingrese 'conjunto' seguido de su letra para sumar sus elementos: ")
-print(":::::::::::::::::::::::::::::::::::::")
-
-if conjunto_a_sumar in numeros_a_sumar:
-    resultado = sumar_elementos(conjunto_a_sumar)
-    print(f"La suma de los valores del conjunto {conjunto_a_sumar} es: {resultado}")
-    print(":::::::::::::::::::::::::::::::::::::")
-else:
-    print("Conjunto no se encuentra")
-    print(":::::::::::::::::::::::::::::::::::::")
+resultado = sumar_diccionario()
+print(f"Su resultado es: {resultado}")
+print(":" * 50)
 
 # Ejercicio 4: Diseñar una función que reciba una tupla de números y devuelva su promedio.
 
@@ -535,8 +504,75 @@ numeros_en_tupla = tuple(numeros_en_lista)
 print(f"Su promedio es: {promedio(numeros_en_tupla)}")
 print(":"* 40)
 
-Ejercicio 5: Crear un programa que almacene notas de estudiantes en un diccionario y calcule el promedio de cada uno.
-Ejercicio 6: Implementar un programa que permita registrar tareas pendientes en un diccionario con categorías.
+#Ejercicio 5: Crear un programa que almacene notas de estudiantes en un diccionario y calcule el promedio de cada uno.
+
+print(":::: FUNCIONES EN DICCIONARIO ::::")
+print(":: simulación de promedio en diccionario ::")
+
+notas_estudiantes = {}
+
+def promedio_estudiante(numero):
+    return sum(numero) / len(numero)
+
+def lista_estudiantes(diccionario):
+    print("::: Alumnos ingresados :::")
+    for estudiante,nota in diccionario.items():
+        print(f"{estudiante.upper()}:{nota}")
+
+
+while True:
+
+    estudiante = input("Ingrese nombre y apellido del estudiante o 'salir': ")
+
+    if estudiante.lower() == 'salir':
+        lista_estudiantes(notas_estudiantes)
+        print(":" * 50)
+        break
+
+    else:
+        try:
+            nota = float(input("Ingrese calificación del estudiante: "))
+        except ValueError:
+            print("Debe ingresar nota con decimal")
+            continue
+
+        if estudiante not in notas_estudiantes:
+            notas_estudiantes[estudiante] = []
+            notas_estudiantes[estudiante].append(nota)
+                
+        while True:
+
+            confirmacion = input("Desea agregar otra calificación(si/no): ")
+            print(":" * 50)
+
+            if confirmacion == "si": 
+                try:
+                    nueva_nota = float(input("Ingrese nueva nota: "))
+                    print(":" * 50)
+                except ValueError:
+                    print("Ingresar nota con decimal")
+                    continue
+
+                notas_estudiantes[estudiante].append(nueva_nota)
+
+            else:
+                print("Notas del estudiante completado")
+                print(":" * 50)
+                break
+
+estudiante_promedio = input("Ingrese nombre completo del estudiante o escriba 'salir': ")
+print(":" * 50)
+
+if estudiante_promedio in notas_estudiantes:
+    resultado = promedio_estudiante(notas_estudiantes[estudiante_promedio])
+    print(f"El promedio de {estudiante_promedio.upper()} es: {resultado}")
+    print(":" * 50)
+
+else:
+    print("Usted ha salido del programa")
+    print(":" * 50)
+
+# Ejercicio 6: Implementar un programa que permita registrar tareas pendientes en un diccionario con categorías.
 Ejercicio 7: Crear un generador de contraseñas aleatorias utilizando colecciones.
 4. Bibliotecas y aplicaciones de escritorio
 Ejercicio 1: Crear un script que use la biblioteca math para resolver ecuaciones cuadráticas.
