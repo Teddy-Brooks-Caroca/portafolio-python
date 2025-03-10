@@ -640,8 +640,30 @@ if lista_turno in tareas_pendientes:
     print(":" * 50)
 
 # Ejercicio 7: Crear un generador de contraseñas aleatorias utilizando colecciones.
-4. Bibliotecas y aplicaciones de escritorio
-Ejercicio 1: Crear un script que use la biblioteca math para resolver ecuaciones cuadráticas.
+
+import random as rm
+import string as st
+
+letras = st.ascii_letters
+digitos = st.digits
+especiales = st.punctuation
+
+alfabeto = letras + digitos + especiales 
+
+longitud_contraseña = 15
+
+contraseña = ""
+
+for caracter in range(longitud_contraseña):
+    contraseña += rm.choice(alfabeto)
+
+print(f"Su contraseña es: {contraseña}")
+
+# :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## 4. Bibliotecas y aplicaciones de escritorio
+
+# Ejercicio 1: Crear un script que use la biblioteca math para resolver ecuaciones cuadráticas.
 Ejercicio 2: Diseñar un programa que utilice random para simular el lanzamiento de un dado.
 Ejercicio 3: Escribir un programa que genere un gráfico de barras con datos ficticios usando matplotlib.
 Ejercicio 4: Implementar un programa que use tkinter para crear una interfaz que permita sumar dos números.
