@@ -573,7 +573,73 @@ else:
     print(":" * 50)
 
 # Ejercicio 6: Implementar un programa que permita registrar tareas pendientes en un diccionario con categorías.
-Ejercicio 7: Crear un generador de contraseñas aleatorias utilizando colecciones.
+
+print(" :::: MANIPULACIÓN DE DICCIONARIO :::: ")
+
+tareas_pendientes = {}
+    
+while True:
+
+    turno = input("Escriba 'mañana','tarde','noche' o 'salir': ").lower().strip()
+
+    if turno.isdigit():
+            print("No se permite poner números en el turno")
+            print(":" * 50)
+            continue
+
+    if turno == "salir":
+        for turno, tareas in tareas_pendientes.items():
+            print(f"Turno {turno.capitalize()}:")
+            for tarea in tareas:
+                print(f"  - {tarea}")
+        print(":" * 50)
+        break
+    
+    
+    tarea = input("Ingrese la tarea que debe de realizar: ")
+    
+    if tarea.isdigit():
+        print("No se permite poner números en el turno")
+        print(":" * 50)
+        continue
+        
+    tareas_pendientes.setdefault(turno, []).append(tarea) # Con este método agregamos valores en repetidas oportunidades 
+
+        
+    while True:
+
+        confirmacion = input("Desea agregar otra tarea (si/no): ").strip().lower()
+        print(":" * 50)
+        
+
+        if confirmacion == "si":
+            nueva_tarea = input("Ingrese nueva tarea: ").strip()
+
+            if nueva_tarea.isdigit():
+                print("Error: No se permiten números en la tarea.")
+                continue
+
+            tareas_pendientes[turno].append(nueva_tarea)
+        
+        elif confirmacion == "no":
+            print("Lista de tareas completadas")
+            print(":" * 50)
+            break
+        
+        else:
+            print("Solo se permite poner si o no")
+            print(":" * 50)
+            
+
+lista_turno = input("Ingrese turno que desea ver las tareas: ")
+
+if lista_turno in tareas_pendientes:
+    print(f"Para el turno de {lista_turno} usted tiene pendiente: ")
+    for tarea in tareas_pendientes[lista_turno]:
+        print(tarea)
+    print(":" * 50)
+
+# Ejercicio 7: Crear un generador de contraseñas aleatorias utilizando colecciones.
 4. Bibliotecas y aplicaciones de escritorio
 Ejercicio 1: Crear un script que use la biblioteca math para resolver ecuaciones cuadráticas.
 Ejercicio 2: Diseñar un programa que utilice random para simular el lanzamiento de un dado.
