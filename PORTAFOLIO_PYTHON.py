@@ -702,6 +702,32 @@ else:
     print(":"*50)
 
 # Ejercicio 2: Diseñar un programa que utilice random para simular el lanzamiento de un dado.
+
+print(" :::: USO DE BIBLIOTECAS :::: ")
+print(" ::: simulación de dado ::: ")
+
+import random as rm
+import time as tm
+
+while True:
+
+    tirar_dado = input("Presiona '7' para tirar dado o escribe 'salir': ").lower()
+
+    if tirar_dado == "salir":
+        print("Usted no quiso lanzar el dado")
+        print(":" * 50)
+        break
+
+    elif tirar_dado == "7":
+        dado_lanzado = rm.randint(1,6)
+        tm.sleep(3)
+        print(f"el dado cayó en: {dado_lanzado}")
+        print(":" * 50)
+    
+    else:
+        print("Solo debe escribir '7' o 'salir'")
+        print(":" * 50)
+
 Ejercicio 3: Escribir un programa que genere un gráfico de barras con datos ficticios usando matplotlib.
 Ejercicio 4: Implementar un programa que use tkinter para crear una interfaz que permita sumar dos números.
 Ejercicio 5: Crear una pequeña calculadora gráfica con operaciones básicas usando tkinter.
