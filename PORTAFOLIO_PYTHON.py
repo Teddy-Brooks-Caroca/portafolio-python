@@ -664,7 +664,44 @@ print(f"Su contraseña es: {contraseña}")
 ## 4. Bibliotecas y aplicaciones de escritorio
 
 # Ejercicio 1: Crear un script que use la biblioteca math para resolver ecuaciones cuadráticas.
-Ejercicio 2: Diseñar un programa que utilice random para simular el lanzamiento de un dado.
+
+print("::::: ECUACIONES CUADRÁTICAS CON BIBLIOTECA :::::")
+
+import math as mt
+import cmath as cmat
+
+a = int(input("Ingrese valor para valor 'a': "))
+b = int(input("Ingrese valor para valor 'b': "))
+c = int(input("Ingrese valor para valor 'c': "))
+
+exponente = 2
+
+discriminante = pow(b,exponente) - (4*a*c)
+
+if discriminante > 0:
+    x1 = (-b + mt.sqrt(discriminante))/(2*a)
+    x2 = (-b - mt.sqrt(discriminante))/(2*a)
+    print(f"::: FORMULA CUADRÁTICA :::")
+    print(f"-{b} ± √( {b}² - 4* {a} * {c} ) / 2 * {a}")
+    print(f"Las soluciones reales son: {x1} y {x2}")
+    print(":"*50)
+
+elif discriminante < 0:
+    x3 = (-b + cmat.sqrt(discriminante))/(2*a)
+    x4 = (-b - cmat.sqrt(discriminante))/(2*a)
+    print(f"::: FORMULA CUADRÁTICA :::")
+    print(f"-{b} ± √( {b}² - 4 * {a} * {c} ) / 2 * {a}")
+    print(f"Las soluciones complejas son: {x3} y {x4}")
+    print(":"*50)
+
+else:
+    x = -b / (2*a)
+    print(f"::: FORMULA CUADRÁTICA :::")
+    print(f"-{b} / 2 * {a}")
+    print(f"La única solución real es: {x}")
+    print(":"*50)
+
+# Ejercicio 2: Diseñar un programa que utilice random para simular el lanzamiento de un dado.
 Ejercicio 3: Escribir un programa que genere un gráfico de barras con datos ficticios usando matplotlib.
 Ejercicio 4: Implementar un programa que use tkinter para crear una interfaz que permita sumar dos números.
 Ejercicio 5: Crear una pequeña calculadora gráfica con operaciones básicas usando tkinter.
