@@ -721,15 +721,56 @@ while True:
     elif tirar_dado == "7":
         dado_lanzado = rm.randint(1,6)
         tm.sleep(3)
-        print(f"el dado cayó en: {dado_lanzado}")
+        print(f"El dado cayó en: {dado_lanzado}")
         print(":" * 50)
     
     else:
         print("Solo debe escribir '7' o 'salir'")
         print(":" * 50)
 
-Ejercicio 3: Escribir un programa que genere un gráfico de barras con datos ficticios usando matplotlib.
-Ejercicio 4: Implementar un programa que use tkinter para crear una interfaz que permita sumar dos números.
-Ejercicio 5: Crear una pequeña calculadora gráfica con operaciones básicas usando tkinter.
-Ejercicio 6: Diseñar un programa que utilice os para mostrar todos los archivos en un directorio.
-Ejercicio 7: Construir una aplicación en tkinter para gestionar tareas pendientes.
+
+# Ejercicio 3: Escribir un programa que genere un gráfico de barras con datos ficticios usando matplotlib.
+
+import matplotlib.pyplot as plt
+
+print(":::::: MANEJO DE LIBRERIAS ::::::")
+print(":: simulación ingreso y graficación ::")
+
+comunidades_indigenas = {}
+
+while True:
+    nombre_comunidad = input("Ingrese el nombre de la comunidad o escriba 'salir': ").lower()
+    print(":" * 50)
+
+    if nombre_comunidad == "salir":
+        print("Usted ha salido del programa")
+        print(":" * 50)
+        break
+
+    else:
+        try:
+            cantidad_habitantes = int(input("Ingrese la cantidad de habitantes registrada: "))
+        except ValueError:
+            print("Debe escribir sin decimales")
+            continue
+        
+        comunidades_indigenas[nombre_comunidad] = cantidad_habitantes
+        print(":" * 50)
+
+comunidad = list(comunidades_indigenas.keys())
+
+cantidad = list(comunidades_indigenas.values())
+
+
+plt.bar(comunidad,cantidad)
+plt.title("Distribución de habitantes por comunidad indígena")
+plt.xlabel("Comunidades indígenas")
+plt.ylabel("Cantidad de habitantes")
+plt.xticks(rotation=45)
+
+plt.show()
+
+# Ejercicio 4: Implementar un programa que use tkinter para crear una interfaz que permita sumar dos números.
+# Ejercicio 5: Crear una pequeña calculadora gráfica con operaciones básicas usando tkinter.
+# Ejercicio 6: Diseñar un programa que utilice os para mostrar todos los archivos en un directorio.
+# Ejercicio 7: Construir una aplicación en tkinter para gestionar tareas pendientes.
