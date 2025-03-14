@@ -731,10 +731,10 @@ while True:
 
 # Ejercicio 3: Escribir un programa que genere un gráfico de barras con datos ficticios usando matplotlib.
 
-import matplotlib.pyplot as plt
-
 print(":::::: MANEJO DE LIBRERIAS ::::::")
 print(":: simulación ingreso y graficación ::")
+
+import matplotlib.pyplot as plt
 
 comunidades_indigenas = {}
 
@@ -771,6 +771,55 @@ plt.xticks(rotation=45)
 plt.show()
 
 # Ejercicio 4: Implementar un programa que use tkinter para crear una interfaz que permita sumar dos números.
+
+import tkinter as tk
+
+def sumar():
+    try:
+        valor1 = caja_primer_numero.get()
+        valor2 = caja_segundo_numero.get()
+        numero1 = float(valor1)
+        numero2 = float(valor2)
+        resultado = numero1 + numero2
+        caja_resultado.config(state="normal")
+        caja_resultado.delete(0, tk.END)
+        caja_resultado.insert(0, resultado)
+        caja_resultado.config(state="readonly")
+
+    except ValueError:
+        print("Solo se permiten números")
+        
+
+# CREAMOS LA VENTANA
+ventana = tk.Tk()
+ventana.config(width= 300,height=250)
+ventana.title(":::: Sumatoria simple ::::")
+
+# CONFIGURAMOS LA PRIMERA ENTRADA
+etiqueta_primer_numero = tk.Label(text="Ingrese primer numero:")
+etiqueta_primer_numero.place(x=30,y=30)
+caja_primer_numero = tk.Entry()
+caja_primer_numero.place(x=170, y=30,width=80,height=20)
+
+# CONFIGURAMOS LA SEGUNDA ENTRADA
+etiqueta_segundo_numero = tk.Label(text="Ingrese segundo numero:")
+etiqueta_segundo_numero.place(x=30,y=60)
+caja_segundo_numero = tk.Entry()
+caja_segundo_numero.place(x=170, y=60,width=80,height=20)
+
+# CONFIGURAMOS LA TERCERA ENTRADA
+etiqueta_resultado = tk.Label(text="Su resultado:")
+etiqueta_resultado.place(x=30,y=90)
+caja_resultado = tk.Entry()
+caja_resultado.place(x=170, y=90,width=120,height=20)
+
+# CONFECCIONAMOS LA BOTONERA
+boton_resultado = tk.Button(text = "SUMAR",command= sumar) # en la función convertimos a INT o FLOAT
+boton_resultado.place(x = 30, y = 120)
+
+# VISUALIZAMOS EL LA VENTANA
+ventana.mainloop()
+
 # Ejercicio 5: Crear una pequeña calculadora gráfica con operaciones básicas usando tkinter.
 # Ejercicio 6: Diseñar un programa que utilice os para mostrar todos los archivos en un directorio.
 # Ejercicio 7: Construir una aplicación en tkinter para gestionar tareas pendientes.
