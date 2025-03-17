@@ -787,7 +787,10 @@ def sumar():
         caja_resultado.config(state="readonly")
 
     except ValueError:
-        print("Solo se permiten números")
+         caja_resultado.config(state="normal")
+         caja_resultado.delete(0, tk.END)
+         caja_resultado.insert(0, "Error")
+         caja_resultado.config(state="readonly")
         
 
 # CREAMOS LA VENTANA
@@ -821,5 +824,184 @@ boton_resultado.place(x = 30, y = 120)
 ventana.mainloop()
 
 # Ejercicio 5: Crear una pequeña calculadora gráfica con operaciones básicas usando tkinter.
+
+import tkinter as tk
+
+# Inicialización de variables globales
+primer_numero = 0
+operador = ""
+
+def agregar_numero(num):
+    caja_botones.config(state="normal")
+    caja_botones.insert(tk.END, str(num))
+    caja_botones.config(state="readonly")
+
+def agregar_punto():                    # Verifica si ya hay un punto decimal en la caja
+    if "." not in caja_botones.get():
+        caja_botones.config(state="normal")
+        caja_botones.insert(tk.END, ".")
+        caja_botones.config(state="readonly")
+
+def operacion(simb):
+    global primer_numero, operador
+    primer_numero = float(caja_botones.get())
+    operador = simb
+    caja_botones.config(state="normal")
+    caja_botones.delete(0, tk.END) 
+    caja_botones.config(state="readonly")
+
+def calcular():
+    global primer_numero, operador
+    segundo_numero = float(caja_botones.get())  # Obtiene el segundo número
+    caja_botones.config(state="normal")
+    caja_botones.delete(0, tk.END)
+
+    if operador == "+":
+        resultado = primer_numero + segundo_numero
+    elif operador == "-":
+        resultado = primer_numero - segundo_numero
+    elif operador == "*":
+        resultado = primer_numero * segundo_numero
+    elif operador == "/":
+        resultado = primer_numero / segundo_numero if segundo_numero != 0 else "Error"
+
+    caja_botones.insert(0, resultado)
+    caja_botones.config(state="readonly")
+
+def limpiar():
+    global primer_numero, operador
+    primer_numero = 0
+    operador = ""
+    caja_botones.config(state="normal")
+    caja_botones.delete(0, tk.END)
+    caja_botones.config(state="readonly")
+
+# CREAMOS LA VENTANA
+ventana_calculadora = tk.Tk()
+ventana_calculadora.config(width=200, height=300)
+ventana_calculadora.title("Calculadora")
+
+# CONFIGURAMOS LA CAJA
+caja_botones = tk.Entry()
+caja_botones.place(x=30, y=30, width=120, height=20)
+caja_botones.config(state="readonly")  # Inicializar como readonly
+
+# CREAMOS LOS BOTONES
+boton_0 = tk.Button(text="0", command=lambda: agregar_numero(0))
+boton_0.place(x=30, y=150)
+
+boton_1 = tk.Button(text="1", command=lambda: agregar_numero(1))
+boton_1.place(x=30, y=60)
+
+boton_2 = tk.Button(text="2", command=lambda: agregar_numero(2))
+boton_2.place(x=60, y=60)
+
+boton_3 = tk.Button(text="3", command=lambda: agregar_numero(3))
+boton_3.place(x=90, y=60)
+
+boton_4 = tk.Button(text="4", command=lambda: agregar_numero(4))
+boton_4.place(x=30, y=90)
+
+boton_5 = tk.Button(text="5", command=lambda: agregar_numero(5))
+boton_5.place(x=60, y=90)
+
+boton_6 = tk.Button(text="6", command=lambda: agregar_numero(6))
+boton_6.place(x=90, y=90)
+
+boton_7 = tk.Button(text="7", command=lambda: agregar_numero(7))
+boton_7.place(x=30, y=120)
+
+boton_8 = tk.Button(text="8", command=lambda: agregar_numero(8))
+boton_8.place(x=60, y=120)
+
+boton_9 = tk.Button(text="9", command=lambda: agregar_numero(9))
+boton_9.place(x=90, y=120)
+
+boton_punto = tk.Button(text=".", command=agregar_punto)
+boton_punto.place(x=120, y=150)
+
+boton_suma = tk.Button(text="+", command=lambda: operacion("+"))
+boton_suma.place(x=60, y=150)
+
+boton_resta = tk.Button(text="-", command=lambda: operacion("-"))
+boton_resta.place(x=90, y=150)
+
+boton_mult = tk.Button(text="*", command=lambda: operacion("*"))
+boton_mult.place(x=30, y=180)
+
+boton_div = tk.Button(text="/", command=lambda: operacion("/"))
+boton_div.place(x=60, y=180)
+
+boton_igual = tk.Button(text="=", command=calcular)
+boton_igual.place(x=90, y=180)
+
+boton_limpiar = tk.Button(text="C", command=limpiar)
+boton_limpiar.place(x=120, y=180)
+
+# VISUALIZAMOS LA VENTANA
+ventana_calculadora.mainloop()
+
 # Ejercicio 6: Diseñar un programa que utilice os para mostrar todos los archivos en un directorio.
+
+import os
+import tkinter as tk
+
+def mostrar_archivos():
+    listbox.delete(0, tk.END)
+    archivos = os.listdir()
+    
+    for archivo in archivos:
+        listbox.insert(tk.END, archivo)
+
+ventana = tk.Tk()
+ventana.title("Lista de Archivos")
+
+listbox = tk.Listbox(ventana)
+listbox.pack(fill=tk.BOTH, expand=True)
+
+boton_actualizar = tk.Button(ventana, text="Actualizar", command=mostrar_archivos)
+boton_actualizar.pack()
+
+mostrar_archivos()
+
+ventana.mainloop()
+
 # Ejercicio 7: Construir una aplicación en tkinter para gestionar tareas pendientes.
+
+import tkinter as tk
+
+lista_de_tareas = []
+
+def ingresar_tareas():
+    tarea = caja_ingresar_tarea.get()
+    if tarea:
+        lista_de_tareas.append(tarea)
+        caja_ingresar_tarea.delete(0, tk.END)
+        mostrar_tareas()
+
+def mostrar_tareas():
+    listbox_tareas.delete(0, tk.END)
+    for tarea in lista_de_tareas:
+        listbox_tareas.insert(tk.END, tarea)
+
+ventana = tk.Tk()
+ventana.config(width = 300, height = 300)
+ventana.title(":::: Gestión de tareas ::::")
+
+etiqueta_ingresar_tarea = tk.Label(text = " Ingrese tarea:")
+etiqueta_ingresar_tarea.place(x = 30, y = 30)
+caja_ingresar_tarea = tk.Entry()
+caja_ingresar_tarea.place(x = 110, y = 30,width = 150,height = 20 )
+
+boton_ingresar_tarea = tk.Button(text = "Ingresar tarea", command = ingresar_tareas )
+boton_ingresar_tarea.place(x = 30, y = 120)
+
+boton_mostrar_tarea = tk.Button(text = "Mostrar tarea", command = mostrar_tareas )
+boton_mostrar_tarea.place(x = 30, y = 150)
+
+listbox_tareas = tk.Listbox(ventana)
+listbox_tareas.place(x = 110, y = 120, width = 150, height = 100)
+
+ventana.mainloop()
+
+# ::::::::::::::::::::::::::::::::: FIN PORTAFOLIO :::::::::::::::::::::::::::::::::
