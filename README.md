@@ -1,7 +1,3 @@
----  
-
-### 📌 **README.md**  
-
 ```md
 # 🐍 Portafolio de Python - Nivel Básico/Intermedio  
 
