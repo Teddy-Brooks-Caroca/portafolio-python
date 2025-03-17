@@ -9,24 +9,24 @@ edad = int(input("Ingrese su edad: "))
 
 if edad < 18:
     print(f"{nombre.upper()} usted es menor de edad")
-elif edad > 18:
+elif edad >= 18:
     print(f"{nombre.upper()} usted es mayor de edad")
 else:
     print("Ingrese una edad permitida por el sistema")
 
 # Ejercicio 2: Diseñar un programa que calcule el precio total de una compra, aplicando descuentos según el monto.
 
-precio = int(input("Ingrese el precio del producto: "))
-porcentaje_descuento = int(input("Ingrese el descuento ofrecido: "))
+precio = float(input("Ingrese el precio del producto: "))
+porcentaje_descuento = float(input("Ingrese el descuento ofrecido: "))
 
 descuento = (precio * porcentaje_descuento) / 100
 
 precio_final = precio - descuento
 
 print("==== DETALLE ====")
-print(f"PRECIO ORIGINAL: ${precio}")
-print(f"DESCUENTO: {porcentaje_descuento}%")
-print(f"PRECIO FINAL: ${precio_final}")
+print(f"PRECIO ORIGINAL: ${precio:.2f}")
+print(f"DESCUENTO: {porcentaje_descuento:.2f}%")
+print(f"PRECIO FINAL: ${precio_final:.2f}")
 print("==== === === ====")
 
 # Ejercicio 3: Escribir un programa que convierta grados Celsius a Fahrenheit y viceversa, con una opción de menú para elegir la conversión.
@@ -34,59 +34,52 @@ print("==== === === ====")
 print(":::::: Conversor de temperatura ::::::")
 
 while True:
-    print("1.- Convertir a grados Celsius","\n"
-          "2.- Convertir a grados Fahrenheit","\n"
-          "3.- Salir")
-    
+    print("\n1.- Convertir a grados Celsius",
+          "\n2.- Convertir a grados Fahrenheit",
+          "\n3.- Salir")
+
     opcion = input("Ingrese una de las opciones: ")
 
     if opcion == "1":
-        print(":::::::::::::::::::::::::::::::")
-        print("Conversión Fahrenheit a Celsius")
-        grados = int(input("Ingrese la temperatura a convertir: "))
-        conversion_f_x_c = (grados - 32) * 5/9
-        print(f"{grados}°f son {conversion_f_x_c}°c")
-        print(":::::::::::::::::::::::::::::::")
-    
+        grados = float(input("Ingrese la temperatura en Fahrenheit: "))
+        conversion_f_x_c = (grados - 32) * 5 / 9
+        print(f"{grados}°F son {conversion_f_x_c:.2f}°C")
+
     elif opcion == "2":
-        print(":::::::::::::::::::::::::::::::")
-        print("Conversión Celsius a Fahrenheit")
-        grados = int(input("Ingrese la temperatura a convertir: "))
+        grados = float(input("Ingrese la temperatura en Celsius: "))
         conversion_c_x_f = (grados * 1.8) + 32
-        print(f"{grados}°c son {conversion_c_x_f}°f")
-        print(":::::::::::::::::::::::::::::::")
+        print(f"{grados}°C son {conversion_c_x_f:.2f}°F")
 
     elif opcion == "3":
         print(":::::: Gracias por usar el conversor ::::::")
         break
+
+    else:
+        print("Opción no válida, intente nuevamente.")
 
 # Ejercicio 4: Crear un programa que determine si un número ingresado por el usuario es positivo, negativo o cero.
 
 numero_usuario = int(input("Ingrese un numero: "))
 
 if numero_usuario > 0:
-    print("Su número es positivo")
+    print("El número ingresado es positivo")
 elif numero_usuario < 0:
-    print("Su número es negativo")
+    print("El número ingresado es es negativo")
 else:
-    print("Su numero es igual a 0")
+    print("El número ingresado es igual a 0")
     
 # Ejercicio 5: Implementar un programa que identifique el mayor de tres números ingresados por el usuario.
 
-numero_1 = int(input("Ingrese primer número: "))
-numero_2 = int(input("Ingrese segundo numero: "))
-numero_3 = int( input("Ingrese tercer número: "))
+num1 = float(input("Ingrese primer número: "))
+num2 = float(input("Ingrese segundo número: "))
+num3 = float(input("Ingrese tercer número: "))
 
-if numero_1 > numero_2 and numero_3:
-    print("el primer número es el mayor")
-elif numero_2 > numero_1 and numero_3:
-    print("el segundo número es el mayor")
-else:
-    print("el tercer número es el mayor")
+mayor = max(num1, num2, num3)
+print(f"El número mayor es: {mayor}")
     
 # Ejercicio 6: Diseñar un menú interactivo que permita seleccionar opciones como "Sumar", "Restar" o "Salir".
 
-print("::::: CLACULADORA SIMPLE :::::")
+print("::::: CALCULADORA SIMPLE :::::")
 while True:
 
     print("1 - Sumar","\n"
@@ -143,18 +136,14 @@ while True:
 
 # Ejercicio 7: Simular un sistema de autenticación básico que valide un usuario y contraseña predefinidos.
 
-nombre_usuario = input("Ingrese su nombre: ")
+nombre_usuario = input("Ingrese su nombre de usuario: ").strip().lower()
 contraseña = input("Ingrese su contraseña: ")
 
-nombre_usuario = nombre_usuario.lower().replace(" ","")
-
-if nombre_usuario == "johndoe":
-    if contraseña == "071085":
-        print("usuario y contraseña válidos")
-    else:
-        print("su contraseña no es válida")
+if nombre_usuario == "johndoe" and contraseña == "071085":
+    print("Usuario y contraseña válidos. Bienvenido.")
 else:
-    print("su usuario no es válido")
+    print("Usuario o contraseña incorrectos.")
+
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -288,11 +277,11 @@ for _ in range(1):
         print(f"{multiplicando} x {multiplicador} = {multiplicando * multiplicador}")
 
 
-mulltiplicando = int(input("Ingrese la tabla que desea: "))            # MÉTODO TRADICIONAL, SIN ANIDADO
+multiplicando = int(input("Ingrese la tabla que desea: "))            # MÉTODO TRADICIONAL, SIN ANIDADO
 multiplicador = int(input("Ingrese hasta que numero desea la tabla: "))
 
 for n in range(1,multiplicador + 1):
-    print(f"{mulltiplicando} x {n} = {mulltiplicando * n}")
+    print(f"{multiplicando} x {n} = {multiplicando * n}")
 
 # Ejercicio 7: Construir un programa que simule un cajero automático con saldo inicial, depósitos y retiros.
 
