@@ -1,68 +1,74 @@
-```md
-# 🐍 Portafolio de Python - Nivel Básico/Intermedio  
+# PORTAFOLIO DE PYTHON - NIVEL BÁSICO/INTERMEDIO
 
-Bienvenido a mi portafolio de Python, donde encontrarás una colección de ejercicios organizados por temas. Este repositorio está diseñado para demostrar mis habilidades en **Python** aplicando estructuras de control, funciones, colecciones, manejo de bibliotecas y creación de interfaces gráficas.
+## Introducción
 
-## 📂 Estructura del repositorio  
+Este repositorio contiene una serie de ejercicios organizados por temas para demostrar mis habilidades en Python. Los ejercicios abarcan desde conceptos básicos hasta el uso de bibliotecas y desarrollo de aplicaciones de escritorio.
 
-Este repositorio se divide en **cuatro módulos**, cada uno con **siete ejercicios**.  
+Cada módulo está diseñado para reforzar el aprendizaje progresivo de la programación en Python, abordando estructuras de control, funciones, colecciones y bibliotecas esenciales.
 
-📌 **1. Introducción, conceptos y condicionales**  
-- Entrada de datos y estructuras de control.  
-- Menús interactivos y validación de entrada.  
-- Ejercicios básicos de condicionales y operadores.  
+---
 
-📌 **2. Entrada de datos, bucles y listas**  
-- Iteración con `while` y `for`.  
-- Manipulación de listas y cadenas.  
-- Implementación de estructuras repetitivas.  
+## Estructura del repositorio
 
-📌 **3. Colecciones, diccionarios y funciones**  
-- Uso de listas, tuplas y diccionarios.  
-- Implementación de funciones para modularizar el código.  
-- Operaciones con estructuras de datos complejas.  
+El portafolio está organizado en cuatro módulos principales, cada uno con siete ejercicios:
 
-📌 **4. Bibliotecas y aplicaciones de escritorio**  
-- Uso de `math`, `random`, `matplotlib` y `tkinter`.  
-- Creación de interfaces gráficas y visualización de datos.  
-- Aplicaciones interactivas como calculadoras y gestores de tareas.  
+### 1. Introducción, conceptos y condicionales
+- Entrada de datos y validaciones básicas.
+- Uso de condicionales (`if`, `elif`, `else`).
+- Diseño de menús interactivos.
 
-## 🚀 Instalación y ejecución  
+### 2. Entrada de datos, bucles y listas
+- Iteración con `while` y `for`.
+- Manipulación de listas y cadenas.
+- Implementación de estructuras repetitivas.
 
-### 🔧 **Requisitos**  
-Antes de ejecutar los scripts, asegúrate de tener instalado **Python 3.8+**. Puedes verificar tu versión con:  
+### 3. Colecciones, diccionarios y funciones
+- Uso de listas, tuplas y diccionarios.
+- Modularización del código con funciones.
+- Operaciones con estructuras de datos complejas.
+
+### 4. Bibliotecas y aplicaciones de escritorio
+- Uso de `math`, `random`, `matplotlib` y `tkinter`.
+- Creación de interfaces gráficas.
+- Aplicaciones interactivas como calculadoras y gestores de tareas.
+
+---
+
+## Instalación y ejecución
+
+### Requisitos
+
+Para ejecutar los ejercicios, es necesario tener instalado **Python 3.8 o superior**. Puedes verificar tu versión con el siguiente comando:
 
 ```sh
 python --version
 ```
 
-También necesitarás instalar algunas bibliotecas adicionales si aún no las tienes:  
+Si el ejercicio requiere bibliotecas externas, puedes instalarlas con:
 
 ```sh
 pip install matplotlib
 ```
 
-### ▶️ **Ejecutar un ejercicio**  
-Para correr cualquier script, usa el siguiente comando en tu terminal:  
+Para ejecutar el script principal, usa el siguiente comando en la terminal:
 
 ```sh
-python ruta/del/archivo.py
+python script_principal.py
 ```
 
-Por ejemplo, para ejecutar el **ejercicio 1 del módulo 1**:  
-
-```sh
-python modulos/modulo1/ejercicio1.py
-```
-
-Si deseas ejecutar las aplicaciones de escritorio (`tkinter`), solo debes ejecutar el archivo correspondiente y la interfaz gráfica se abrirá automáticamente.
-
-## 📜 Licencia  
-
-Este proyecto es de uso libre. Siéntete libre de utilizarlo, modificarlo y compartirlo.  
+Si deseas ejecutar una aplicación de escritorio creada con `tkinter`, solo debes ejecutar el archivo y la interfaz gráfica se abrirá automáticamente.
 
 ---
 
-📩 **Contacto**  
-Si tienes alguna sugerencia o pregunta, ¡contáctame o crea un issue en este repositorio! 🚀  
-```
+## Licencia
+
+Este proyecto es de uso libre. Puedes utilizarlo, modificarlo y compartirlo según sea necesario.
+
+---
+
+## Contacto
+
+Si tienes alguna sugerencia o pregunta, puedes contactarme o crear un **issue** en este repositorio.
+
+¡Gracias por visitar mi portafolio! 🚀
+
