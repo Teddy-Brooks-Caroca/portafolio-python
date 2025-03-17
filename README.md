@@ -1,5 +1,3 @@
-Aquí tienes un **README.md** bien estructurado para tu portafolio en GitHub. Incluiré una introducción clara, la estructura de los ejercicios y cómo ejecutarlos.  
-
 ---  
 
 ### 📌 **README.md**  
@@ -72,7 +70,3 @@ Este proyecto es de uso libre. Siéntete libre de utilizarlo, modificarlo y comp
 📩 **Contacto**  
 Si tienes alguna sugerencia o pregunta, ¡contáctame o crea un issue en este repositorio! 🚀  
 ```
-
----
-
-Este README está estructurado para que cualquier persona pueda entender y ejecutar tu portafolio fácilmente. ¿Quieres agregar algo más, como capturas de pantalla de las interfaces gráficas? 😊
